@@ -69,8 +69,7 @@ rdiscount:
 redcarpet:
   extensions: []
 
-
-syntax_highlighter_opts:
+kramdown:
   auto_ids:       true
   footnote_nr:    1
   entity_output:  as_char
@@ -80,9 +79,9 @@ syntax_highlighter_opts:
   input: GFM
 
   coderay:
-    wrap:              div
-    line_numbers:      inline
-    line_number_start: 1
-    tab_width:         4
-    bold_every:        10
-    css:               style
+    coderay_wrap:              div
+    coderay_line_numbers:      inline
+    coderay_line_number_start: 1
+    coderay_tab_width:         4
+    coderay_bold_every:        10
+    coderay_css:               style
