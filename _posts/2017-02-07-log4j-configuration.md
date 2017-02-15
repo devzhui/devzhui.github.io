@@ -15,45 +15,45 @@ Log4J的配置文件(Configuration File)就是用来设置记录器的级别、�
 
 ## 1. 配置文件
 Log4J配置文件的基本格式如下：
-```java
-#配置根Logger
-log4j.rootLogger = [ level ],appenderName1,appenderName2, …
+```
+     #配置根Logger
+     log4j.rootLogger = [ level ],appenderName1,appenderName2, …
 
-#配置日志信息输出目的地Appender
-log4j.appender.appenderName  =  fully.qualified.name.of.appender.class 
-log4j.appender.appenderName.option1  =  value1 
-… 
-log4j.appender.appenderName.optionN  =  valueN 
+     #配置日志信息输出目的地Appender
+     log4j.appender.appenderName  =  fully.qualified.name.of.appender.class 
+     log4j.appender.appenderName.option1  =  value1 
+     … 
+     log4j.appender.appenderName.optionN  =  valueN 
 
-#配置日志信息的格式（布局）
-log4j.appender.appenderName.layout  =  fully.qualified.name.of.layout.class 
-log4j.appender.appenderName.layout.option1  =  value1 
-… 
-log4j.appender.appenderName.layout.optionN  =  valueN 
+     #配置日志信息的格式（布局）
+     log4j.appender.appenderName.layout  =  fully.qualified.name.of.layout.class 
+     log4j.appender.appenderName.layout.option1  =  value1 
+     … 
+     log4j.appender.appenderName.layout.optionN  =  valueN 
 ```
 其中 [level] 是日志输出级别，共有5级：
 ```
-FATAL      0  
-ERROR      3  
-WARN       4  
-INFO       6  
-DEBUG      7 
+     FATAL      0  
+     ERROR      3  
+     WARN       4  
+     INFO       6  
+     DEBUG      7 
 ```
 
 Appender 为日志输出目的地，Log4j提供的appender有以下几种：
 ```
-org.apache.log4j.ConsoleAppender（控制台），
-org.apache.log4j.FileAppender（文件），
-org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），
-org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），
-org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）
+     org.apache.log4j.ConsoleAppender（控制台），
+     org.apache.log4j.FileAppender（文件），
+     org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），
+     org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），
+     org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）
 ```
 Layout：日志输出格式，Log4j提供的layout有以下几种：
 ```
-org.apache.log4j.HTMLLayout（以HTML表格形式布局），
-org.apache.log4j.PatternLayout（可以灵活地指定布局模式），
-org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），
-org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）
+     org.apache.log4j.HTMLLayout（以HTML表格形式布局），
+     org.apache.log4j.PatternLayout（可以灵活地指定布局模式），
+     org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），
+     org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）
 ```
 
 打印参数: Log4J采用类似C语言中的printf函数的打印格式格式化日志信息，如下:
@@ -67,6 +67,7 @@ org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等�
 　　%d   输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss , SSS}，输出类似：2002年10月18日  22 ： 10 ： 28， 921  
 　　%l   输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java: 10 ) 
 ```
+
 ## 2. 在代码中初始化Logger: 
 1. 在程序中调用BasicConfigurator.configure()方法：给根记录器增加一个ConsoleAppender，输出格式通过PatternLayout设为"%-4r [%t] %-5p %c %x - %m%n"，还有根记录器的默认级别是Level.DEBUG. 
 2. 配置放在文件里，通过命令行参数传递文件名字，通过PropertyConfigurator.configure(args[x])解析并配置；
@@ -79,30 +80,30 @@ org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等�
 
 [配置文件]
 ```
-### set log levels ###
-log4j.rootLogger = debug ,  stdout ,  D ,  E
+     ### set log levels ###
+     log4j.rootLogger = debug ,  stdout ,  D ,  E
 
-### 输出到控制台 ###
-log4j.appender.stdout = org.apache.log4j.ConsoleAppender
-log4j.appender.stdout.Target = System.out
-log4j.appender.stdout.layout = org.apache.log4j.PatternLayout
-log4j.appender.stdout.layout.ConversionPattern =  %d{ABSOLUTE} %5p %c{ 1 }:%L - %m%n
+     ### 输出到控制台 ###
+     log4j.appender.stdout = org.apache.log4j.ConsoleAppender
+     log4j.appender.stdout.Target = System.out
+     log4j.appender.stdout.layout = org.apache.log4j.PatternLayout
+     log4j.appender.stdout.layout.ConversionPattern =  %d{ABSOLUTE} %5p %c{ 1 }:%L - %m%n
 
-### 输出到日志文件 ###
-log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
-log4j.appender.D.File = logs/log.log
-log4j.appender.D.Append = true
-log4j.appender.D.Threshold = DEBUG ## 输出DEBUG级别以上的日志
-log4j.appender.D.layout = org.apache.log4j.PatternLayout
-log4j.appender.D.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+     ### 输出到日志文件 ###
+     log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
+     log4j.appender.D.File = logs/log.log
+     log4j.appender.D.Append = true
+     log4j.appender.D.Threshold = DEBUG ## 输出DEBUG级别以上的日志
+     log4j.appender.D.layout = org.apache.log4j.PatternLayout
+     log4j.appender.D.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
 
-### 保存异常信息到单独文件 ###
-log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
-log4j.appender.D.File = logs/error.log ## 异常日志文件名
-log4j.appender.D.Append = true
-log4j.appender.D.Threshold = ERROR ## 只输出ERROR级别以上的日志!!!
-log4j.appender.D.layout = org.apache.log4j.PatternLayout
-log4j.appender.D.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+     ### 保存异常信息到单独文件 ###
+     log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
+     log4j.appender.D.File = logs/error.log ## 异常日志文件名
+     log4j.appender.D.Append = true
+     log4j.appender.D.Threshold = ERROR ## 只输出ERROR级别以上的日志!!!
+     log4j.appender.D.layout = org.apache.log4j.PatternLayout
+     log4j.appender.D.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
 ```
 [代码中使用] 
 ```
@@ -113,7 +114,7 @@ log4j.appender.D.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS}
         logger.debug( " debug " );
         logger.error( " error " );
     } 
-}
+  }
 ```
 运行一下，看看异常信息是不是保存在了一个单独的文件error.log中
 
@@ -121,6 +122,7 @@ log4j.appender.D.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS}
 
 ### 一.参数意义说明
 输出级别的种类
+
 ```
 ERROR、WARN、INFO、DEBUG
 ERROR 为严重错误 主要是程序的错误
@@ -129,6 +131,7 @@ INFO 为一般要显示的信息，比如登录登出
 DEBUG 为程序的调试信息
 ```
 配置日志信息输出目的地
+
 ```
 log4j.appender.appenderName = fully.qualified.name.of.appender.class
 1.org.apache.log4j.ConsoleAppender（控制台）
@@ -137,6 +140,7 @@ log4j.appender.appenderName = fully.qualified.name.of.appender.class
 4.org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件）
 5.org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）
 ```
+
 配置日志信息的格式
 ```
 log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class
@@ -145,12 +149,14 @@ log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class
 3.org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），
 4.org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）
 ```
+
 控制台选项
 ```
 Threshold=DEBUG:指定日志消息的输出最低层次。
 ImmediateFlush=true:默认值是true,意谓着所有的消息都会被立即输出。
 Target=System.err：默认情况下是：System.out,指定输出控制台
 ```
+
 FileAppender 选项
 ```
 Threshold=DEBUF:指定日志消息的输出最低层次。
@@ -158,7 +164,9 @@ ImmediateFlush=true:默认值是true,意谓着所有的消息都会被立即输�
 File=mylog.txt:指定消息输出到mylog.txt文件。
 Append=false:默认值是true,即将消息增加到指定文件中，false指将消息覆盖指定的文件内容。
 ```
+
 RollingFileAppender 选项
+
 ```
 Threshold=DEBUG:指定日志消息的输出最低层次。
 ImmediateFlush=true:默认值是true,意谓着所有的消息都会被立即输出。
@@ -168,6 +176,7 @@ MaxFileSize=100KB: 后缀可以是KB, MB 或者是 GB. 在日志文件到达该�
 MaxBackupIndex=2:指定可以产生的滚动文件的最大数。
 log4j.appender.A1.layout.ConversionPattern=%-4r %-5p %d{yyyy-MM-dd HH:mm:ssS} %c %m%n
 ```
+
 日志信息格式中几个符号所代表的含义：
 ```
  -X号: X信息输出时左对齐；
@@ -184,6 +193,7 @@ log4j.appender.A1.layout.ConversionPattern=%-4r %-5p %d{yyyy-MM-dd HH:mm:ssS} %c
  %m: 输出代码中指定的消息,产生的日志具体信息
  %n: 输出一个回车换行符，Windows平台为"\r\n"，Unix平台为"\n"输出日志信息换行
 ```
+
 可以在%与模式字符之间加上修饰符来控制其最小宽度、最大宽度、和文本的对齐方式。如：
 * %20c：指定输出category的名称，最小的宽度是20，如果category的名称小于20的话，默认的情况下右对齐。
 * %-20c:指定输出category的名称，最小的宽度是20，如果category的名称小于20的话，"-"号指定左对齐。
@@ -311,6 +321,7 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 
 1.  把Log4j压缩包里的NTEventLogAppender.dll拷到WINNT\SYSTEM32目录下
 2.  写配置文件log4j.properties
+
 ```
 # 在2000系统日志输出
  log4j.logger.NTlog=FATAL, A8
@@ -320,6 +331,7 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
  log4j.appender.A8.layout=org.apache.log4j.PatternLayout
  log4j.appender.A8.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
 ```
+
 3.  调用代码：
 ```
  Logger logger2 = Logger.getLogger("NTlog"); //要和配置文件中设置的名字相同
@@ -342,6 +354,7 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 ```
 
 2. 写配置文件
+
 ```
  # 将日志发送到email
  log4j.logger.MailLog=WARN,A5
@@ -357,6 +370,7 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 ```
 
 3. 调用代码：
+
 ```
  //把日志发送到mail
  Logger logger3 = Logger.getLogger("MailLog");
