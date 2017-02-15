@@ -15,6 +15,7 @@ Log4J的配置文件(Configuration File)就是用来设置记录器的级别、�
 
 ## 1. 配置文件
 Log4J配置文件的基本格式如下：
+
 ```
      #配置根Logger
      log4j.rootLogger = [ level ],appenderName1,appenderName2, …
@@ -31,7 +32,9 @@ Log4J配置文件的基本格式如下：
      … 
      log4j.appender.appenderName.layout.optionN  =  valueN 
 ```
+
 其中 [level] 是日志输出级别，共有5级：
+
 ```
      FATAL      0  
      ERROR      3  
@@ -41,6 +44,7 @@ Log4J配置文件的基本格式如下：
 ```
 
 Appender 为日志输出目的地，Log4j提供的appender有以下几种：
+
 ```
      org.apache.log4j.ConsoleAppender（控制台），
      org.apache.log4j.FileAppender（文件），
@@ -48,7 +52,9 @@ Appender 为日志输出目的地，Log4j提供的appender有以下几种：
      org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），
      org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）
 ```
+
 Layout：日志输出格式，Log4j提供的layout有以下几种：
+
 ```
      org.apache.log4j.HTMLLayout（以HTML表格形式布局），
      org.apache.log4j.PatternLayout（可以灵活地指定布局模式），
@@ -57,6 +63,7 @@ Layout：日志输出格式，Log4j提供的layout有以下几种：
 ```
 
 打印参数: Log4J采用类似C语言中的printf函数的打印格式格式化日志信息，如下:
+
 ```
  　 %m   输出代码中指定的消息
 　　%p   输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL 
@@ -67,6 +74,7 @@ Layout：日志输出格式，Log4j提供的layout有以下几种：
 　　%d   输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss , SSS}，输出类似：2002年10月18日  22 ： 10 ： 28， 921  
 　　%l   输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java: 10 ) 
 ```
+
 
 ## 2. 在代码中初始化Logger: 
 1. 在程序中调用BasicConfigurator.configure()方法：给根记录器增加一个ConsoleAppender，输出格式通过PatternLayout设为"%-4r [%t] %-5p %c %x - %m%n"，还有根记录器的默认级别是Level.DEBUG. 
@@ -79,6 +87,7 @@ Layout：日志输出格式，Log4j提供的layout有以下几种：
    这时我们也许会想要是能把异常信息单独输出到一个文件里该多好啊。当然可以，Log4j已经提供了这样的功能，我们只需要在配置中修改Appender的Threshold 就能实现,比如下面的例子：
 
 [配置文件]
+
 ```
      ### set log levels ###
      log4j.rootLogger = debug ,  stdout ,  D ,  E
@@ -105,7 +114,9 @@ Layout：日志输出格式，Log4j提供的layout有以下几种：
      log4j.appender.D.layout = org.apache.log4j.PatternLayout
      log4j.appender.D.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
 ```
+
 [代码中使用] 
+
 ```
   public   class  TestLog4j  {
      public   static   void  main(String[] args)  {
@@ -116,6 +127,7 @@ Layout：日志输出格式，Log4j提供的layout有以下几种：
     } 
   }
 ```
+
 运行一下，看看异常信息是不是保存在了一个单独的文件error.log中
 
 ## log4j.properties 使用
@@ -130,6 +142,7 @@ WARN 为一般警告，比如session丢失
 INFO 为一般要显示的信息，比如登录登出
 DEBUG 为程序的调试信息
 ```
+
 配置日志信息输出目的地
 
 ```
@@ -142,6 +155,7 @@ log4j.appender.appenderName = fully.qualified.name.of.appender.class
 ```
 
 配置日志信息的格式
+
 ```
 log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class
 1.org.apache.log4j.HTMLLayout（以HTML表格形式布局），
