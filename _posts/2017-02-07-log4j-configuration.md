@@ -17,20 +17,20 @@ Log4J的配置文件(Configuration File)就是用来设置记录器的级别、�
 Log4J配置文件的基本格式如下：
 
 ```
-     #配置根Logger
-     log4j.rootLogger = [ level ],appenderName1,appenderName2, …
+#配置根Logger
+log4j.rootLogger = [ level ],appenderName1,appenderName2, …
 
-     #配置日志信息输出目的地Appender
-     log4j.appender.appenderName  =  fully.qualified.name.of.appender.class 
-     log4j.appender.appenderName.option1  =  value1 
-     … 
-     log4j.appender.appenderName.optionN  =  valueN 
+#配置日志信息输出目的地Appender
+log4j.appender.appenderName  =  fully.qualified.name.of.appender.class 
+log4j.appender.appenderName.option1  =  value1 
+… 
+log4j.appender.appenderName.optionN  =  valueN 
 
-     #配置日志信息的格式（布局）
-     log4j.appender.appenderName.layout  =  fully.qualified.name.of.layout.class 
-     log4j.appender.appenderName.layout.option1  =  value1 
-     … 
-     log4j.appender.appenderName.layout.optionN  =  valueN 
+#配置日志信息的格式（布局）
+log4j.appender.appenderName.layout  =  fully.qualified.name.of.layout.class 
+log4j.appender.appenderName.layout.option1  =  value1 
+… 
+log4j.appender.appenderName.layout.optionN  =  valueN 
 ```
 
 其中 [level] 是日志输出级别，共有5级：
@@ -165,6 +165,7 @@ log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class
 ```
 
 控制台选项
+
 ```
 Threshold=DEBUG:指定日志消息的输出最低层次。
 ImmediateFlush=true:默认值是true,意谓着所有的消息都会被立即输出。
@@ -172,6 +173,7 @@ Target=System.err：默认情况下是：System.out,指定输出控制台
 ```
 
 FileAppender 选项
+
 ```
 Threshold=DEBUF:指定日志消息的输出最低层次。
 ImmediateFlush=true:默认值是true,意谓着所有的消息都会被立即输出。
@@ -192,6 +194,7 @@ log4j.appender.A1.layout.ConversionPattern=%-4r %-5p %d{yyyy-MM-dd HH:mm:ssS} %c
 ```
 
 日志信息格式中几个符号所代表的含义：
+
 ```
  -X号: X信息输出时左对齐；
  %p: 输出日志信息优先级，即DEBUG，INFO，WARN，ERROR，FATAL,
@@ -217,6 +220,7 @@ log4j.appender.A1.layout.ConversionPattern=%-4r %-5p %d{yyyy-MM-dd HH:mm:ssS} %c
 ### 二.文件配置
 
 #### Sample1
+
 ```
 log4j.rootLogger=DEBUG,A1,R
 #log4j.rootLogger=INFO,A1,R
@@ -347,6 +351,7 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 ```
 
 3.  调用代码：
+
 ```
  Logger logger2 = Logger.getLogger("NTlog"); //要和配置文件中设置的名字相同
  logger2.debug("debug!!!");
@@ -361,6 +366,7 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 发送email通知管理员：
 
 1. 首先下载JavaMail和JAF, 
+
 ```
       http://java.sun.com/j2ee/ja/javamail/index.html
       http://java.sun.com/beans/glasgow/jaf.html
@@ -394,6 +400,7 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 ```
 
 在后台输出所有类别的错误：
+
 ```java
  1. 写配置文件
  # 在后台输出
@@ -438,6 +445,7 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 ```
 
 全部代码：Log4jTest.java
+
 ```java
 /* 
 * 创建日期 2003-11-13 
