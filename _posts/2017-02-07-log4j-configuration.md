@@ -401,47 +401,47 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 
 在后台输出所有类别的错误：
 
-```java
- 1. 写配置文件
- # 在后台输出
- log4j.logger.console=DEBUG, A1
- # APPENDER A1
- log4j.appender.A1=org.apache.log4j.ConsoleAppender
- log4j.appender.A1.layout=org.apache.log4j.PatternLayout
- log4j.appender.A1.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
- 2．调用代码
- Logger logger1 = Logger.getLogger("console");
- logger1.debug("debug!!!");
- logger1.info("info!!!");
- logger1.warn("warn!!!");
- logger1.error("error!!!");
- logger1.fatal("fatal!!!");
+```
+1. 写配置文件
+# 在后台输出
+log4j.logger.console=DEBUG, A1
+# APPENDER A1
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
+2．调用代码
+Logger logger1 = Logger.getLogger("console");
+logger1.debug("debug!!!");
+logger1.info("info!!!");
+logger1.warn("warn!!!");
+logger1.error("error!!!");
+logger1.fatal("fatal!!!");
 --------------------------------------------------------------------
- 全部配置文件：log4j.properties
- # 在后台输出
- log4j.logger.console=DEBUG, A1
- # APPENDER A1
- log4j.appender.A1=org.apache.log4j.ConsoleAppender
- log4j.appender.A1.layout=org.apache.log4j.PatternLayout
- log4j.appender.A1.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
+全部配置文件：log4j.properties
+# 在后台输出
+log4j.logger.console=DEBUG, A1
+# APPENDER A1
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
 # 在2000系统日志输出
- log4j.logger.NTlog=FATAL, A8
- # APPENDER A8
- log4j.appender.A8=org.apache.log4j.nt.NTEventLogAppender
- log4j.appender.A8.Source=JavaTest
- log4j.appender.A8.layout=org.apache.log4j.PatternLayout
- log4j.appender.A8.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
+log4j.logger.NTlog=FATAL, A8
+# APPENDER A8
+log4j.appender.A8=org.apache.log4j.nt.NTEventLogAppender
+log4j.appender.A8.Source=JavaTest
+log4j.appender.A8.layout=org.apache.log4j.PatternLayout
+log4j.appender.A8.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
 # 将日志发送到email
- log4j.logger.MailLog=WARN,A5
- #  APPENDER A5
- log4j.appender.A5=org.apache.log4j.net.SMTPAppender
- log4j.appender.A5.BufferSize=5
- log4j.appender.A5.To=chunjie@yeqiangwei.com
- log4j.appender.A5.From=error@yeqiangwei.com
- log4j.appender.A5.Subject=ErrorLog
- log4j.appender.A5.SMTPHost=smtp.263.net
- log4j.appender.A5.layout=org.apache.log4j.PatternLayout
- log4j.appender.A5.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
+log4j.logger.MailLog=WARN,A5
+#  APPENDER A5
+log4j.appender.A5=org.apache.log4j.net.SMTPAppender
+log4j.appender.A5.BufferSize=5
+log4j.appender.A5.To=chunjie@yeqiangwei.com
+log4j.appender.A5.From=error@yeqiangwei.com
+log4j.appender.A5.Subject=ErrorLog
+log4j.appender.A5.SMTPHost=smtp.263.net
+log4j.appender.A5.layout=org.apache.log4j.PatternLayout
+log4j.appender.A5.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n
 ```
 
 全部代码：Log4jTest.java
@@ -449,43 +449,43 @@ log4j.appender.im.layout.ConversionPattern =[framework] %d - %c -%-4r [%t] %-5p 
 ```java
 /* 
 * 创建日期 2003-11-13 
-      */ 
-     package edu.bcu.Bean; 
-     import org.apache.log4j.*; 
-     //import org.apache.log4j.nt.*; 
-     //import org.apache.log4j.net.*; 
-     /** 
+*/ 
+package edu.bcu.Bean; 
+import org.apache.log4j.*; 
+//import org.apache.log4j.nt.*; 
+//import org.apache.log4j.net.*; 
+/** 
 * @author yanxu 
-      */ 
-     public class Log4jTest 
-     { 
-      public static void main(String args[]) 
-      { 
-       PropertyConfigurator.configure("log4j.properties"); 
-       //在后台输出 
-       Logger logger1 = Logger.getLogger("console"); 
-       logger1.debug("debug!!!"); 
-       logger1.info("info!!!"); 
-       logger1.warn("warn!!!"); 
-       logger1.error("error!!!"); 
-       logger1.fatal("fatal!!!");
-    //在NT系统日志输出 
-       Logger logger2 = Logger.getLogger("NTlog"); 
-       //NTEventLogAppender nla = new NTEventLogAppender(); 
-       logger2.debug("debug!!!"); 
-       logger2.info("info!!!"); 
-       logger2.warn("warn!!!"); 
-       logger2.error("error!!!"); 
-       //只有这个错误才会写入2000日志 
-       logger2.fatal("fatal!!!");
-    //把日志发送到mail 
-       Logger logger3 = Logger.getLogger("MailLog"); 
-       //SMTPAppender sa = new SMTPAppender(); 
-       logger3.warn("warn!!!"); 
-       logger3.error("error!!!"); 
-       logger3.fatal("fatal!!!"); 
-      } 
-     }
+*/ 
+public class Log4jTest 
+{ 
+public static void main(String args[]) 
+{ 
+PropertyConfigurator.configure("log4j.properties"); 
+//在后台输出 
+Logger logger1 = Logger.getLogger("console"); 
+logger1.debug("debug!!!"); 
+logger1.info("info!!!"); 
+logger1.warn("warn!!!"); 
+logger1.error("error!!!"); 
+logger1.fatal("fatal!!!");
+//在NT系统日志输出 
+Logger logger2 = Logger.getLogger("NTlog"); 
+//NTEventLogAppender nla = new NTEventLogAppender(); 
+logger2.debug("debug!!!"); 
+logger2.info("info!!!"); 
+logger2.warn("warn!!!"); 
+logger2.error("error!!!"); 
+//只有这个错误才会写入2000日志 
+logger2.fatal("fatal!!!");
+//把日志发送到mail 
+Logger logger3 = Logger.getLogger("MailLog"); 
+//SMTPAppender sa = new SMTPAppender(); 
+logger3.warn("warn!!!"); 
+logger3.error("error!!!"); 
+logger3.fatal("fatal!!!"); 
+} 
+}
 ```
 
 [转自cnblogs](http://www.cnblogs.com/ITEagle/archive/2010/04/23/1718365.html)
