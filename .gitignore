@@ -1,5 +1,7 @@
 *.class
-
+# complie file
+_site/*
+_site
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
