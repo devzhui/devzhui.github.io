@@ -4,7 +4,8 @@ title: 'MathJax测试,公式求导'
 date: '2017-02-19'
 header-img: "img/post-bg-unix.jpg"
 tags:
-     - java
+     - latex
+     - mathjax
 author: 'zhui'
 ---
 
