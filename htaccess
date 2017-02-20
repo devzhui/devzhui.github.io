@@ -1,0 +1,7 @@
+---
+layout: none
+permalink: .htaccess
+---
+<Files *>
+ Options -Indexes
+</Files>

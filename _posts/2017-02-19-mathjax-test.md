@@ -86,7 +86,7 @@ $$
 \begin{align}
 \nabla V_{jk} &= 
 	\frac{1}{2} \sum_{t=1}^T \sum_{i =1}^N \sum_{j=1}^M
-	I_{ij}^t [R_{ij}^t -　(U_i^t)^T V_j ]^2 
+	I_{ij}^t [R_{ij}^t-(U_i^t)^T V_j ]^2 
     + \lambda_V V_{jk}
     - \lambda_P \sum_{p=1}^K I(k >_j^+ p) \frac{ e^{-(V_{jk} -V_{jp})}}{1 + e^{-(V_{jk} -V_{jp})}} 
     - \lambda_P \sum_{q=1}^K I(q >_j^+ k)  \frac{ - e^{-(V_{jq} -V_{jk})}}{1 + e^{-(V_{jq} -V_{jk})}} 
