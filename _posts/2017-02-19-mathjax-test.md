@@ -32,7 +32,7 @@ $$
 
 $$
 \begin{align*}
-    \nabla V_{jk} &=  - \sum_{t=1}^T \sum_{i =1}^N      I_{ij}^t [R_{ij}^t -　U_i^T V_j ] U_{ik}^t 
+    \nabla V_{jk} &=  - \sum_{t=1}^T \sum_{i =1}^N      I_{ij}^t [R_{ij}^t-U_i^T V_j ] U_{ik}^t 
 \end{align*}
 $$
 
