@@ -8,22 +8,17 @@ tags:
 author: '阮一峰'
 ---
 
-```
-Git远程操作详解
-作者： 阮一峰
-日期： 2014年6月12日
-URL: http://www.ruanyifeng.com/blog/2014/06/git_remote.html
-```
-
 Git是目前最流行的版本管理系统，学会Git几乎成了开发者的必备技能。
 
 Git有很多优势，其中之一就是远程操作非常简便。本文详细介绍5个Git命令，它们的概念和用法，理解了这些内容，你就会完全掌握Git远程操作。
 
-	git clone
-	git remote
-	git fetch
-	git pull
-	git push
+```bash
+git clone
+git remote
+git fetch
+git pull
+git push
+```
 
 本文针对初级用户，从最简单的讲起，但是需要读者对Git的基本用法有所了解。同时，本文覆盖了上面5个命令的几乎所有的常用用法，所以对于熟练用户也有参考价值。
 ![git](/img/git.jpg)
@@ -252,6 +247,12 @@ git push命令用于将本地分支的更新，推送到远程主机。它的格
 （完）
 
 
+```
+Git远程操作详解
+作者： 阮一峰
+日期： 2014年6月12日
+URL: http://www.ruanyifeng.com/blog/2014/06/git_remote.html
+```
 
 > 如有任何知识产权、版权问题或理论错误，还请指正。
 >

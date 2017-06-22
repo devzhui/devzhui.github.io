@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Apache下配置认证用户'
-date: '1000-01-01'
+date: '2018-06-01'
 header-img: "img/post-bg-unix.jpg"
 tags:
      - java
