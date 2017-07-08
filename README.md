@@ -8,24 +8,28 @@
 
 1. 安装jeykll
 
-	gem install jekyll
-	gem install jekyll-paginate
+ gem install jekyll
+ gem install jekyll-paginate
 
 2. 将CodeboyBlog复制到服务器(部署到github.io的方式自行搜索)。
 3. 运行命令生成网站即可(经常改变配置的话不建议增量更新)。
-    
-        jekyll serve --watch &
-        jekyll serve --watch --incremental & //增量更新
+
+   ```Bash
+    jekyll serve --watch &
+    jekyll serve --watch --incremental & //增量更新
+   ```
 
 为了能够更好的生成网站，我们可以写一个脚本:
 
-    #!/bin/bash
-    
+```Bash
+#!/bin/bash
+```
+
     ps aux |grep jekyll |awk '{print $2}' | xargs kill -9
     cd /path/to/blog
     jekyll serve --watch &
-    
-    
+
+
 > ps开头的命令是关闭所有jekyll的进程
 >
 > cd到网站的根目录
