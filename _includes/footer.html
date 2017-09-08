@@ -49,13 +49,14 @@
                     {% endif %}
                 </ul>
                 <p class="copyright text-muted">Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}</p>
-				<div style="width:300px;margin:0 auto; padding:20px 0;">
-				<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34010402700561" style="display:inline-block;text-decoration:none;height:16px;line-height:16px;margin:0 auto">
-					<img src="/img/beian.png" style="float:left;"/>
-					<p style="float:center;height:10px;line-height:10px;text-align: center ; color:#939393;font-size:16px ">
-					皖公网安备 34010402700561号</p>
-				</a>
-				</div>
+		</div>
+		<div style="width:300px;margin:0 auto; padding:20px 0;text-align: center;">
+    			<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34010402700561" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;margin:0 auto; text-align: center">
+    			<img src="/img/beian.png" style="float:center;" width="14px">
+    			<a style="float:center;height:20px;line-height:20px;text-align: center ; color:#939393;font-size:12px;text-decoration:none;">
+       			 皖公网安备 34010402700561号</a>
+    			</a>
+		</div>
 																	 
             </div>
         </div>
@@ -63,8 +64,23 @@
 </footer>
 
 <!--MathJax-->
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		    inlineMath: [ ['$', '$'] ],
+			displayMath: [ ['$$', '$$']],
+			processEscapes: true,
+	        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+	},
+	messageStyle: "none",
+	"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+
 <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+		src = "https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" >
 </script>
 
 
