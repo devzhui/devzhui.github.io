@@ -7,9 +7,12 @@ tags:
      - java
 author: 'zhui'
 ---
+
+## 测试
+
 $$ x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
-哈啊哈哦啊哈哈哦口难调？对于复杂$$x = \sum_{i=1}^n $$的高级功能，
+对于复杂$x = \sum_{i=1}^n $的高级功能，
 
 $$
 \begin{equation}

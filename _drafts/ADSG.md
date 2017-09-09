@@ -4,10 +4,12 @@ title: 'Accelerated Doubly Stochastic Gradient Algorithm for Large-scale Empiric
 date: '2017-09-08'
 header-img: "img/post-bg-unix.jpg"
 tags:
-     - optimation
-     - SGD
-     - SCD
-     - Doubly staochastic algorithm
+     - Optimization
+     - ADSG
+     - ERM
+     - Doubly stochastic algorithm
+     - Momentum
+     - Accelerating
 author: 'zhui'
 ---
 
@@ -20,7 +22,7 @@ solve large scale empirical risk minimization problem for learning tasks.
 * a doubly stochastic algorithm with 
 * a novel accelerating multi-momentum technique
 
-### Convgence
+### Convergence
 * general convex case
 $O( log(1/ \epsilon ) / \sqrt{\epsilon} )$
 * strongly convex
@@ -29,7 +31,7 @@ $O( (n+ \sqrt{n \kappa}) log(1/ \epsilon) )$
 
 ***
 
-### Doubly staochastic algorithm
+### Doubly stochastic algorithm
 #### SGD
 * Variance Reduction: SAGA,SVRG->Katyusha
 * Nesterov’s optimal accelerated
@@ -54,8 +56,8 @@ Further, Experiments with more than 10M samples and 1M features.
 
 #### Assumption
 * Each function $f_i$ is L-smooth
-* Average funvtion F is $L_b$-smooth 
-* Function P is µ-strongly convex
+* Average function F is $L_b$-smooth 
+* Function P is $\mu$-strongly convex
 
 #### Momentum Accelerating Technique
 
