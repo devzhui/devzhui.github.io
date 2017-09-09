@@ -2,7 +2,7 @@
 layout: post
 title: 'Accelerated Doubly Stochastic Gradient Algorithm for Large-scale Empirical Risk Minimization'
 date: '2017-09-08'
-header-img: "img/post-bg-unix.jpg"
+header-img: "img/post-bg-opt.jpg"
 tags:
      - Optimization
      - ADSG
