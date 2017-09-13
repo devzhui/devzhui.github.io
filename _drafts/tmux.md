@@ -171,9 +171,8 @@ tmux使用C/S模型构建，主要包括以下单元模块：
 ## 参考文章
 [Tmux多窗口分隔线显示虚线不正常解决](http://www.haiyun.me/archives/tmux-dotted-line.html)
 
-```
-转载于：http://blog.kissdata.com/2014/07/29/tmux.html
-```
+
+`转载于：http://blog.kissdata.com/2014/07/29/tmux.html`
 
 > 如有任何知识产权、版权问题或理论错误，还请指正。
 >
