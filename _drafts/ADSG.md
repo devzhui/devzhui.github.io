@@ -15,7 +15,7 @@ author: 'zhui'
 
 ## Accelerated Doubly Stochastic Gradient Algorithm for Large-scale Empirical Risk Minimization
 
-[Paper Link]()
+[Paper Link](/paper/ijcai-17-adsg.pdf)
 
 ### Problem
 solve large scale empirical risk minimization problem for learning tasks.
