@@ -37,7 +37,7 @@ unpublished: true
 
 # Plugins
 whitelist: []
-gems:      ["jekyll-paginate"]
+plugins:      ["jekyll-paginate"]
 #gems:      []
 
 # Conversion
