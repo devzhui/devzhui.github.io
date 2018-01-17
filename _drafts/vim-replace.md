@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 'VIM中进行文本替换
+title: 'VIM中进行文本替换'
 date: '2018-01-17'
 header-img: "img/post-bg-unix.jpg"
 tags:
-     - java
+     - vim
 author: 'zhui'
 ---
 
@@ -20,12 +20,14 @@ author: 'zhui'
     注意：这里的from和to都可以是任何字符串，其中from还可以是正则表达式。
 
 ### 2. 替换某一行的内容：    :33s/from/to/g
-    :.s/from/to/g  ： 在当前行进行替换操作。
+
+	:.s/from/to/g  ： 在当前行进行替换操作。
     :33s/from/to/g ： 在第33行进行替换操作。
     :$s/from/to/g  ： 在最后一行进行替换操作。
 
 ### 3. 替换某些行的内容：    :10,20s/from/to/g
-    :10,20s/from/to/g   ： 对第10行到第20行的内容进行替换。
+   
+	:10,20s/from/to/g   ： 对第10行到第20行的内容进行替换。
     :1,$s/from/to/g    ： 对第一行到最后一行的内容进行替换（即全部文本）。
     :1,.s/from/to/g    ： 对第一行到当前行的内容进行替换。
     :.,$s/from/to/g    ： 对当前行到最后一行的内容进行替换。
@@ -33,10 +35,12 @@ author: 'zhui'
     其中a和b是之前用m命令所做的标记。
 
 ### 4. 替换所有行的内容：    :%s/from/to/g
- 	:%s/from/to/g  ： 对所有行的内容进行替换。
+	
+	:%s/from/to/g  ： 对所有行的内容进行替换。
 
 ### 5. 替换命令的完整形式：   :[range]s/from/to/[flags]
-    5.1s/from/to/
+    
+	5.1s/from/to/
     	把from指定的字符串替换成to指定的字符串，from可以是正则表达式。
     5.2[range]
       有以下一些表示方法：
