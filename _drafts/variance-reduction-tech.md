@@ -1,15 +1,15 @@
 ---
 layout: post
-title: 'Stochastic  Gradient Descent and Variants'
-date: '2018-08-01'
+title: 'Minimizing Finite Sums Introduction'
+date: '2016-11-03'
 header-img: "img/post-bg-unix.jpg"
 tags:
      - optimization
-     - adaptive-methods
+     - var
 author: 'zhui'
 ---
 
-[Stochastic  Gradient Descent and Variants-ZhongHui](/paper/zhui-adaptive-sgd.pdf)
+[zhonghui_ppt_Minimizing Finite Sums Introduction](/paper/zhui-vr-sgd.pdf)
 
 
 > 如有任何知识产权、版权问题或理论错误，还请指正。
