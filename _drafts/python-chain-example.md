@@ -8,8 +8,7 @@ tags:
 author: 'zhui'
 ---
 
-#python中的链表推导式
-
+# python中的链表推导式
 
 Python代码
 ```python
